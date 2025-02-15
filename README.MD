@@ -14,3 +14,8 @@ was adapted from a template for the faculty of Computing and Telecommunications
 ## Usage
 
 TODO
+
+## Acknowledgements
+The Typst implementation was partially inspired by RefDevX's
+[kthesis-typst](https://github.com/RafDevX/kthesis-typst), distributed under
+the MIT license.

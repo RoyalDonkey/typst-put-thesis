@@ -1,0 +1,30 @@
+[conf]
+default-lang = "pl"
+
+[lang.pl]
+signet-imgpath = "../assets/sygnet-pp.svg"
+faculty = "Wydział Informatyki i Telekomunikacji"
+institute = "Instytut Informatyki"
+bachelor-caption = "Praca dyplomowa licencjacka"
+master-caption = "Praca dyplomowa magisterska"
+supervisor = "Promotor"
+diploma-card-page = "Tutaj będzie karta pracy dyplomowej;\noryginał wstawiamy do wersji dla archiwum PP, w pozostałych kopiach wstawiamy ksero."
+chapter = "Rozdział"
+figure = "Rysunek"
+figure-table = "Tabela"
+figure-code = "Kod źródłowy"
+section = "Akapit"
+
+[lang.en]
+signet-imgpath = "../assets/sygnet-pp-eng.svg"
+faculty = "Faculty of Computing and Telecommunication"
+institute = "Institute of Computing Science"
+bachelor-caption = "Bachelor's thesis"
+master-caption = "Master's thesis"
+supervisor = "Supervisor"
+diploma-card-page = "Your diploma thesis card will go here;\n the original will be given to the PUT archives, and all other versions will have copies."
+chapter = "Chapter"
+figure = "Figure"
+figure-table = "Table"
+figure-code = "Code"
+section = "Section"
