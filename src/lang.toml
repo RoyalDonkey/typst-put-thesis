@@ -14,6 +14,7 @@ figure = "Rysunek"
 figure-table = "Tabela"
 figure-code = "Kod źródłowy"
 section = "Akapit"
+abstract = "Streszczenie"
 
 [lang.en]
 signet-imgpath = "../assets/sygnet-pp-eng.svg"
@@ -28,3 +29,4 @@ figure = "Figure"
 figure-table = "Table"
 figure-code = "Code"
 section = "Section"
+abstract = "Abstract"
