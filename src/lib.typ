@@ -45,6 +45,9 @@
 
 	body,
 ) = {
+	if sys.version < version(0, 12, 0) {
+		panic("This template requires typst >=0.12.0")
+	}
 	assert(lang == "pl" or lang == "en")
 	assert(ttype == "bachelor" or ttype == "master")
 	set-database(toml("./lang.toml"))
@@ -66,14 +69,36 @@
 	set par(justify: true, leading: 0.83em)
 
 	set outline(
-		title: text(size: 24pt)[#v(74pt)#linguify("toc")#v(50pt)],
+		title: text(size: 20pt)[#v(77pt)#linguify("toc")#v(39pt)],
 		indent: auto,
+		depth: 3,
 	)
-	show outline.entry.where(
-		level: 1
-	): it => {
-		v(8pt, weak: true)
-		strong(it)
+	show outline.entry: it => {
+		if sys.version < version(0, 13, 0) {
+			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
+			chapter_num
+			h(10pt)
+			it.element.body
+			h(6pt)
+			box(width: 1fr, repeat[.#h(4pt)])
+			h(16pt)
+			it.page
+		} else {
+			panic("Not implemented yet!")
+		}
+	}
+	show outline.entry.where(level: 1): it => {
+		if sys.version < version(0, 13, 0) {
+			v(18.5pt, weak: true)
+			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
+			strong(chapter_num)
+			h(10pt)
+			strong(it.element.body)
+			h(1fr)
+			strong(it.page)
+		} else {
+			panic("Not implemented yet!")
+		}
 	}
 
 	front-matter((
@@ -113,10 +138,10 @@
 	show heading.where(level: 1): it => context [
 		#pagebreak(weak: true)
 		#v(75pt)
-		#text(size: 18pt)[#linguify("chapter") #str(counter(heading).get().at(0))]
-		#v(7pt)
-		#text(size: 24pt, it.body)
-		#v(17pt)
+		#text(size: 17pt)[#linguify("chapter") #str(counter(heading).get().at(0))]
+		#v(12pt)
+		#text(size: 21pt, it.body)
+		#v(22pt)
 	]
 	show heading.where(level: 2): set text(size: 14pt)
 
