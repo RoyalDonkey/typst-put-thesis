@@ -66,7 +66,7 @@
 	set par(justify: true, leading: 0.83em)
 
 	set outline(
-		title: text(size: 24pt)[#v(74pt)Contents#v(50pt)],
+		title: text(size: 24pt)[#v(74pt)#linguify("toc")#v(50pt)],
 		indent: auto,
 	)
 	show outline.entry.where(
