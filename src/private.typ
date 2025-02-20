@@ -20,28 +20,28 @@
 		#figure(
 			image(signet_imgpath, width: 100%),
 		)
-		#v(-5pt)
-		#text(size: 11pt, upper(faculty))\
-		#text(size: 11pt, institute)
+		#v(-4pt)
+		#upper(faculty)\
+		#institute
 	]
 
 	place(center + top, dy: 298pt)[
-		#text(size: 11pt, linguify(ttype + "-caption"))
-		#v(21pt)
-		#text(size: 13.8pt, upper(strong(title)))
-		#v(42pt)
+		#linguify(ttype + "-caption")
+		#v(24pt)
+		#text(size: 11.75pt, upper(strong(title)))
+		#v(45pt)
 		#let authors_block = [
 			#for (student, student_id) in config.authors [
-				#student, #student_id
-
+				#text(size: 11pt)[#student, #student_id]
+				#v(-4pt)
 			]
 		]
 		#authors_block
 		#let authors_block_h = measure(authors_block).height
-		#v(109pt - authors_block_h)
+		#v(107pt - authors_block_h)
 		#linguify("supervisor")\
 		#supervisor
-		#v(26mm)
+		#v(74pt)
 		POZNAŃ #year
 	]
 	pagebreak(weak: true)
