@@ -147,6 +147,14 @@
 		v(22pt)
 	}
 	show heading.where(level: 2): set text(size: 12pt)
+	show heading.where(level: 3): set text(size: 11pt)
+	show heading.where(level: 4): set heading(numbering: none, outlined: false)
+	show heading.where(level: 5): set heading(numbering: none, outlined: false)
+	show heading.where(level: 6): set heading(numbering: none, outlined: false)
+	show heading.where(level: 7): set heading(numbering: none, outlined: false)
+	show heading.where(level: 8): set heading(numbering: none, outlined: false)
+	show heading.where(level: 9): set heading(numbering: none, outlined: false)
+	// If you need more than 9 level of headings, there is something wrong with you
 
 	set figure(numbering: "1.1")
 	show figure: set figure(supplement: linguify("figure"))
