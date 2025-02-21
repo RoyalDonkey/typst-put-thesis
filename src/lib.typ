@@ -76,8 +76,15 @@
 	show outline.entry: it => {
 		if sys.version < version(0, 13, 0) {
 			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
+
+			// Ugly solution, but this fixes the vertical alignment of subheadings
+			if it.level == 2 {
+				h(-1pt)
+			} else if it.level == 3 {
+				h(-4pt)
+			}
+
 			chapter_num
-			h(10pt)
 			it.element.body
 			h(6pt)
 			box(width: 1fr, repeat[.#h(4pt)])
@@ -92,7 +99,6 @@
 			v(18.5pt, weak: true)
 			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
 			strong(chapter_num)
-			h(10pt)
 			strong(it.element.body)
 			h(1fr)
 			strong(it.page)
@@ -132,18 +138,19 @@
 	set page(numbering: "1")
 	counter(page).update(1)
 
-	set heading(numbering: "1.1", supplement: linguify("section"))
+	set heading(numbering: "1.1  ", supplement: linguify("section"))
+
 	// Treat level-1 headings as chapters
 	show heading.where(level: 1): set heading(supplement: linguify("chapter"))
 	show heading.where(level: 1): it => context [
 		#pagebreak(weak: true)
 		#v(75pt)
-		#text(size: 17pt)[#linguify("chapter") #str(counter(heading).get().at(0))]
+		#text(size: 17pt)[#linguify("chapter") #numbering(it.numbering, ..counter(heading).get())]
 		#v(12pt)
 		#text(size: 21pt, it.body)
 		#v(22pt)
 	]
-	show heading.where(level: 2): set text(size: 14pt)
+	show heading.where(level: 2): set text(size: 12pt)
 
 	set figure(numbering: "1.1")
 	show figure: set figure(supplement: linguify("figure"))
