@@ -78,18 +78,18 @@
 			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
 
 			// Ugly solution, but this fixes the vertical alignment of subheadings
-			if it.level == 2 {
-				h(-1pt)
-			} else if it.level == 3 {
-				h(-4pt)
+			if it.level != 1 {
+				h(2pt)
 			}
 
-			chapter_num
-			it.element.body
+			link(it.element.location())[
+				#chapter_num
+				#it.element.body
+			]
 			h(6pt)
 			box(width: 1fr, repeat[.#h(4pt)])
 			h(16pt)
-			it.page
+			link(it.element.location(), it.page)
 		} else {
 			panic("Not implemented yet!")
 		}
@@ -98,10 +98,12 @@
 		if sys.version < version(0, 13, 0) {
 			v(18.5pt, weak: true)
 			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
-			strong(chapter_num)
-			strong(it.element.body)
+			link(it.element.location())[
+				#strong(chapter_num)
+				#strong(it.element.body)
+			]
 			h(1fr)
-			strong(it.page)
+			link(it.element.location(), strong(it.page))
 		} else {
 			panic("Not implemented yet!")
 		}
