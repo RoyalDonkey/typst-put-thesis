@@ -28,4 +28,6 @@
 #include("chapters/03-own-work.typ")
 #include("chapters/04-results.typ")
 #include("chapters/05-conclusions.typ")
-// TODO: appendices
+
+#show: appendices
+#include("chapters/06-appendix-a.typ.typ")
