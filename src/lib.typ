@@ -35,8 +35,8 @@
 	if sys.version < version(0, 12, 0) {
 		panic("This template requires typst >=0.12.0")
 	}
-	assert(lang == "pl" or lang == "en")
-	assert(ttype == "bachelor" or ttype == "master")
+	assert(lang == "pl" or lang == "en", message: "Only \"pl\" or \"en\" languages are currently supported.")
+	assert(ttype == "bachelor" or ttype == "master", message: "Only \"bachelor\" or \"master\" thesis types are currently supported.")
 	set-database(toml("./lang.toml"))
 
 	set document(
