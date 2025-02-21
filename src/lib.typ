@@ -1,18 +1,5 @@
 #import "private.typ": *
 #import "@preview/linguify:0.4.1": linguify, set-database
-#import "@preview/hydra:0.5.2": hydra
-
-#let header() = context {
-  let chapter = hydra(1, skip-starting: false, display: (ctx, h) => h.body)
-
-  let number = counter(page).display(here().page-numbering())
-
-  if calc.odd(here().page()) {
-    align(right, [#chapter | #number])
-  } else {
-    align(left, [#number | #chapter])
-  }
-}
 
 /// Initialize the thesis. This must be called before any other function of the template.
 #let put-thesis(
@@ -144,7 +131,7 @@
 }
 
 #let styled-body(body) = {
-	set page(numbering: "1")
+	set page(numbering: "1", header: header(), footer: footer())
 	counter(page).update(1)
 
 	set heading(numbering: "1.1  ", supplement: linguify("section"))

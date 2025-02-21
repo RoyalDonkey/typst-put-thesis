@@ -1,3 +1,5 @@
+#import "@preview/hydra:0.6.0": hydra, anchor
+
 #let front-matter(config) = context {
 	let lang = config.lang
 	let ttype = config.ttype
@@ -48,6 +50,38 @@
 
 	place(center + horizon, linguify("diploma-card-page"))
 	pagebreak(weak: true, to: "odd")
+}
+
+#let header() = anchor() + context {
+	// Do not show anything on chapter pages
+	let following_chapters = query(selector(heading.where(level: 1)).after(here()))
+	if following_chapters.len() > 0 {
+		let next_chapter = following_chapters.first()
+		if next_chapter.location().page() == here().page() {
+			return
+		}
+	}
+
+	let chapter = hydra(2, skip-starting: false)
+	let page_num = numbering("1", ..counter(page).at(here()))
+
+	emph(chapter)
+	h(1fr)
+	page_num
+}
+
+#let footer() = context {
+	// Show page number, only on chapter pages
+	let preceding_chapters = query(selector(heading.where(level: 1)).before(here()))
+	if preceding_chapters.len() > 0 {
+		for chapter in preceding_chapters {
+			if chapter.location().page() == here().page() {
+				let page_num = numbering("1", ..counter(page).at(here()))
+				return align(center, page_num)
+			}
+		}
+	}
+	none
 }
 
 #let colophon(config) = {
