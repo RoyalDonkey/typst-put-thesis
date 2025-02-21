@@ -138,14 +138,14 @@
 
 	// Treat level-1 headings as chapters
 	show heading.where(level: 1): set heading(supplement: linguify("chapter"))
-	show heading.where(level: 1): it => context [
-		#pagebreak(weak: true)
-		#v(75pt)
-		#text(size: 17pt)[#linguify("chapter") #numbering(it.numbering, ..counter(heading).get())]
-		#v(12pt)
-		#text(size: 21pt, it.body)
-		#v(22pt)
-	]
+	show heading.where(level: 1): it => context {
+		pagebreak(weak: true)
+		v(75pt)
+		text(size: 17pt)[#linguify("chapter") #numbering(it.numbering, ..counter(heading).get())]
+		v(12pt)
+		text(size: 21pt, it.body)
+		v(22pt)
+	}
 	show heading.where(level: 2): set text(size: 12pt)
 
 	set figure(numbering: "1.1")
@@ -160,14 +160,14 @@
 	// Treat level-1 headings as appendices
 	set heading(numbering: "A.1  ")
 	show heading.where(level: 1): set heading(supplement: linguify("appendix"))
-	show heading.where(level: 1): it => context [
-		#pagebreak(weak: true)
-		#v(75pt)
-		#text(size: 17pt)[#linguify("appendix") #numbering(it.numbering, ..counter(heading).get())]
-		#v(12pt)
-		#text(size: 21pt, it.body)
-		#v(22pt)
-	]
+	show heading.where(level: 1): it => context {
+		pagebreak(weak: true)
+		v(75pt)
+		text(size: 17pt)[#linguify("appendix") #numbering(it.numbering, ..counter(heading).get())]
+		v(12pt)
+		text(size: 21pt, it.body)
+		v(22pt)
+	}
 	counter(heading).update(0)
 
 	body
