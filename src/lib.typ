@@ -121,6 +121,13 @@
 	set page(numbering: "I")
 	counter(page).update(1)
 	body
+	colophon((
+		authors: authors,
+		year: year,
+		faculty: faculty,
+		institute: institute,
+		linguify: linguify,
+	))
 }
 
 #let abstract(body) = {

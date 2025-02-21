@@ -49,3 +49,28 @@
 	place(center + horizon, linguify("diploma-card-page"))
 	pagebreak(weak: true, to: "odd")
 }
+
+#let colophon(config) = {
+	let authors = config.authors
+	let year = config.year
+	let faculty = config.faculty
+	let institute = config.institute
+	let linguify = config.linguify
+	pagebreak(weak: true)
+	set page(numbering: none)
+	set text(size: 8.5pt)
+	set par(leading: 0.5em)
+	place(left + bottom, dy: 11pt)[
+		#image("../assets/logo-pp.svg", width: 15mm),
+	]
+	place(left + bottom, dx: 19.5mm, dy: 2pt)[
+		$copyright$
+		#year
+		#authors.map(x => x.at(0)).join(", ")
+
+		#institute, #faculty\
+		#linguify("put")
+
+		#linguify("colophon-extra")
+	]
+}
