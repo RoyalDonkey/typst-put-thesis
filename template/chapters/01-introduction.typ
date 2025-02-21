@@ -5,8 +5,11 @@
 
 == Research gap
 #lorem(70)
+
 - #lorem(10)
+
 - #lorem(20)
+
 - #lorem(12)
 
 #lorem(50)
@@ -25,8 +28,13 @@
 
 == Thesis organization
 #lorem(10)
+
 + #lorem(25)
+
 + #lorem(29)
+
 + #lorem(35)
+
 + #lorem(24)
+
 + #lorem(10)
