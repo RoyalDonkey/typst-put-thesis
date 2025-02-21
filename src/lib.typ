@@ -64,33 +64,25 @@
 		if sys.version < version(0, 13, 0) {
 			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
 
-			// Ugly solution, but this fixes the vertical alignment of subheadings
-			if it.level != 1 {
+			if it.level == 1 {
+				v(18.5pt, weak: true)
+				link(it.element.location())[
+					#strong(chapter_num)
+					#strong(it.element.body)
+				]
+				h(1fr)
+				link(it.element.location(), strong(it.page))
+			} else {
 				h(2pt)
+				link(it.element.location())[
+					#chapter_num
+					#it.element.body
+				]
+				h(6pt)
+				box(width: 1fr, repeat[.#h(4pt)])
+				h(16pt)
+				link(it.element.location(), it.page)
 			}
-
-			link(it.element.location())[
-				#chapter_num
-				#it.element.body
-			]
-			h(6pt)
-			box(width: 1fr, repeat[.#h(4pt)])
-			h(16pt)
-			link(it.element.location(), it.page)
-		} else {
-			panic("Not implemented yet!")
-		}
-	}
-	show outline.entry.where(level: 1): it => {
-		if sys.version < version(0, 13, 0) {
-			v(18.5pt, weak: true)
-			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
-			link(it.element.location())[
-				#strong(chapter_num)
-				#strong(it.element.body)
-			]
-			h(1fr)
-			link(it.element.location(), strong(it.page))
 		} else {
 			panic("Not implemented yet!")
 		}
