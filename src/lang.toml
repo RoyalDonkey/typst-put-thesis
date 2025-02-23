@@ -18,6 +18,7 @@ section = "Akapit"
 abstract = "Streszczenie"
 toc = "Spis treści"
 colophon-extra = "Skład przy użyciu systemu Typst z szablonem put-thesis"
+bibliography = "Literatura"
 
 [lang.en]
 put = "Poznań University of Technology"
@@ -36,3 +37,4 @@ section = "Section"
 abstract = "Abstract"
 toc = "Contents"
 colophon-extra = "Typeset using Typst with the put-thesis template"
+bibliography = "References"

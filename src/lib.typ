@@ -63,7 +63,17 @@
 	)
 	show outline.entry: it => {
 		if sys.version < version(0, 13, 0) {
-			let chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
+			let chapter_num = []
+			if it.element.numbering != none {
+				chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
+			} else {
+				// Ugly hack: bibliography is the only unnumbered top-level entry
+				v(18.5pt, weak: true)
+				link(it.element.location(), strong(linguify("bibliography")))
+				h(1fr)
+				link(it.element.location(), strong(it.page))
+				return
+			}
 
 			if it.level == 1 {
 				v(18.5pt, weak: true)
@@ -132,12 +142,16 @@
 	// Treat level-1 headings as chapters
 	show heading.where(level: 1): set heading(supplement: linguify("chapter"))
 	show heading.where(level: 1): it => context {
-		pagebreak(weak: true)
-		v(75pt)
-		text(size: 17pt)[#linguify("chapter") #numbering(it.numbering, ..counter(heading).get())]
-		v(12pt)
-		text(size: 21pt, it.body)
-		v(22pt)
+		if it.numbering != none {
+			pagebreak(weak: true)
+			v(75pt)
+			text(size: 17pt)[#linguify("chapter") #numbering(it.numbering, ..counter(heading).get())]
+			v(12pt)
+			text(size: 21pt, it.body)
+			v(22pt)
+		} else {
+			it
+		}
 	}
 	show heading.where(level: 2): set text(size: 12pt)
 	show heading.where(level: 3): set text(size: 11pt)
@@ -167,6 +181,10 @@
 	}
 	show figure.where(kind: table): set figure.caption(position: top)
 
+	// Style bibliography
+	set bibliography(title: text(size: 20pt)[#v(77pt)#linguify("bibliography")#v(39pt)])
+	show bibliography: set text(size: 9pt)
+
 	body
 }
 
@@ -175,12 +193,16 @@
 	set heading(numbering: "A.1  ")
 	show heading.where(level: 1): set heading(supplement: linguify("appendix"))
 	show heading.where(level: 1): it => context {
-		pagebreak(weak: true)
-		v(75pt)
-		text(size: 17pt)[#linguify("appendix") #numbering(it.numbering, ..counter(heading).get())]
-		v(12pt)
-		text(size: 21pt, it.body)
-		v(22pt)
+		if it.numbering != none {
+			pagebreak(weak: true)
+			v(75pt)
+			text(size: 17pt)[#linguify("appendix") #numbering(it.numbering, ..counter(heading).get())]
+			v(12pt)
+			text(size: 21pt, it.body)
+			v(22pt)
+		} else {
+			it
+		}
 	}
 	counter(heading).update(0)
 
