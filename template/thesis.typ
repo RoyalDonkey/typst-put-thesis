@@ -19,7 +19,7 @@
 #abstract[
 	Write your abstract here.
 ]
-#outline()
+#outline(depth: 3)
 #pagebreak(weak: true)
 #show: styled-body
 

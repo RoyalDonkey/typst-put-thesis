@@ -59,7 +59,6 @@
 	set outline(
 		title: text(size: 20pt)[#v(77pt)#linguify("toc")#v(39pt)],
 		indent: auto,
-		depth: 3,
 	)
 	show outline.entry: it => {
 		if sys.version < version(0, 13, 0) {
