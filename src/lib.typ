@@ -145,7 +145,7 @@
 		if it.numbering != none {
 			pagebreak(weak: true)
 			v(75pt)
-			text(size: 17pt)[#linguify("chapter") #numbering(it.numbering, ..counter(heading).get())]
+			text(size: 17pt)[#it.supplement #numbering(it.numbering, ..counter(heading).get())]
 			v(12pt)
 			text(size: 21pt, it.body)
 			v(22pt)
@@ -196,7 +196,7 @@
 		if it.numbering != none {
 			pagebreak(weak: true)
 			v(75pt)
-			text(size: 17pt)[#linguify("appendix") #numbering(it.numbering, ..counter(heading).get())]
+			text(size: 17pt)[#it.supplement #numbering(it.numbering, ..counter(heading).get())]
 			v(12pt)
 			text(size: 21pt, it.body)
 			v(22pt)
