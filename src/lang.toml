@@ -3,7 +3,6 @@ default-lang = "pl"
 
 [lang.pl]
 put = "Politechnika Poznańska"
-signet-imgpath = "../assets/sygnet-pp.svg"
 faculty = "Wydział Informatyki i Telekomunikacji"
 institute = "Instytut Informatyki"
 bachelor-caption = "Praca dyplomowa licencjacka"
@@ -22,7 +21,6 @@ colophon-extra = "Skład przy użyciu systemu Typst z szablonem put-thesis"
 
 [lang.en]
 put = "Poznań University of Technology"
-signet-imgpath = "../assets/sygnet-pp-eng.svg"
 faculty = "Faculty of Computing and Telecommunication"
 institute = "Institute of Computing Science"
 bachelor-caption = "Bachelor's thesis"
