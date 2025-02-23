@@ -1,7 +1,10 @@
 = Introduction
 
 == Topic and scope of this thesis
-#lorem(100)
+This is not an actual thesis. It is a boilerplate document meant to showcase
+the put-thesis Typst template for writing scientific dissertations for Poznań
+University of Technology. The stylistic choices are largely inspired by
+@template2022 and @Drozdowski2006.
 
 == Research gap
 #lorem(70)

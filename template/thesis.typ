@@ -1,7 +1,7 @@
 #import "src/lib.typ": *
 
 #show: put-thesis.with(
-	lang: "pl",
+	lang: "en",  // or "pl"
 	ttype: "bachelor",  // or "master"
 	title: "Title of the thesis",
 	authors: (
@@ -10,14 +10,14 @@
 		("Third author", 333333),
 	),
 	supervisor: "Name of the supervisor",
-	year: 2025,
+	year: 2025,  // Year of final submission (not graduation!)
 
 	// Override only if you're not from WIiT/CAT faculty or CompSci institute
 	// faculty: "My faculty",
 	// institute: "My institute",
 )
 #abstract[
-	This is the abstract.
+	Write your abstract here.
 ]
 #outline()
 #pagebreak(weak: true)
@@ -28,6 +28,9 @@
 #include("chapters/03-own-work.typ")
 #include("chapters/04-results.typ")
 #include("chapters/05-conclusions.typ")
+
+#pagebreak(weak: true)
+#bibliography("references.bib", style: "ieee")
 
 #show: appendices
 #include("chapters/06-appendix-a.typ.typ")
