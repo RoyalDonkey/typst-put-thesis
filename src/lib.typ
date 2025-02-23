@@ -1,5 +1,6 @@
 #import "private.typ": *
 #import "@preview/linguify:0.4.1": linguify, set-database
+#import "@preview/headcount:0.1.0": dependent-numbering, reset-counter
 
 /// Initialize the thesis. This must be called before any other function of the template.
 #let put-thesis(
@@ -148,10 +149,23 @@
 	show heading.where(level: 9): set heading(numbering: none, outlined: false)
 	// If you need more than 9 level of headings, there is something wrong with you
 
-	set figure(numbering: "1.1")
-	show figure: set figure(supplement: linguify("figure"))
+	// Number figures relative to the current chapter
+	show figure.where(kind: image): set figure(supplement: linguify("figure-image"))
 	show figure.where(kind: table): set figure(supplement: linguify("figure-table"))
 	show figure.where(kind: raw): set figure(supplement: linguify("figure-code"))
+	set figure(numbering: dependent-numbering("1.1", levels: 1))
+	show heading: reset-counter(counter(figure.where(kind: image)))
+	show heading: reset-counter(counter(figure.where(kind: table)))
+	show heading: reset-counter(counter(figure.where(kind: raw)))
+
+	// Use PUT format for figure captions
+	show figure.caption: set text(size: 9pt)
+	show figure.caption: it => context {
+		strong[#it.supplement #it.counter.display().]
+		" "
+		it.body
+	}
+	show figure.where(kind: table): set figure.caption(position: top)
 
 	body
 }
