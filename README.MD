@@ -9,7 +9,8 @@ for writing such theses in PUT (2022).
 
 The template supports Bachelor's and Master's theses, in Polish or English. It
 was adapted from a template for the faculty of Computing and Telecommunications
-(WIiT), but the subcaption can be adjusted to any faculty.
+(WIiT), but it attempts to be as unopinionated as possible, and should be easily
+adjustable to any faculty or field of study.
 
 ## Usage
 
