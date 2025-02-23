@@ -52,6 +52,11 @@
 	pagebreak(weak: true, to: "odd")
 }
 
+// This is a bit of a hack, see https://github.com/tingerrr/hydra/issues/29
+// Basically, hydra is supposed to automatically detect headings, and it should
+// not be necessary to call the `anchor()` here. But since we're breaking some
+// conventions hydra relies on with the custom Chapter headings, this is the
+// only way to appease it.
 #let header() = anchor() + context {
 	// Do not show anything on chapter pages
 	let following_chapters = query(selector(heading.where(level: 1)).after(here()))
