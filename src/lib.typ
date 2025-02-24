@@ -136,8 +136,12 @@
 	set page(numbering: "1", header: header(), footer: footer())
 	counter(page).update(1)
 
+	// Use localized supplement names
 	set heading(numbering: "1.1  ", supplement: linguify("section"))
 	set math.equation(supplement: linguify("equation"))
+	show figure.where(kind: image): set figure(supplement: linguify("figure-image"))
+	show figure.where(kind: table): set figure(supplement: linguify("figure-table"))
+	show figure.where(kind: raw): set figure(supplement: linguify("figure-code"))
 
 	// Treat level-1 headings as chapters
 	show heading.where(level: 1): set heading(supplement: linguify("chapter"))
@@ -164,9 +168,6 @@
 	// If you need more than 9 level of headings, there is something wrong with you
 
 	// Number figures relative to the current chapter
-	show figure.where(kind: image): set figure(supplement: linguify("figure-image"))
-	show figure.where(kind: table): set figure(supplement: linguify("figure-table"))
-	show figure.where(kind: raw): set figure(supplement: linguify("figure-code"))
 	set figure(numbering: dependent-numbering("1.1", levels: 1))
 	set math.equation(numbering: it => {
 		let count = counter(heading.where(level: 1)).at(here()).first()
