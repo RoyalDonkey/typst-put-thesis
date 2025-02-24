@@ -1,6 +1,6 @@
 = Introduction
 
-== Topic and scope of this thesis
+== Topic and scope of this thesis <sec:topic-and-scope>
 This is not an actual thesis. It is a boilerplate document meant to showcase
 the put-thesis Typst template for writing scientific dissertations for Poznań
 University of Technology. The stylistic choices are largely inspired by
