@@ -60,41 +60,78 @@
 		title: text(size: 20pt)[#v(77pt)#linguify("toc")#v(39pt)],
 		indent: auto,
 	)
-	show outline.entry: it => {
+	show: body => {
 		if sys.version < version(0, 13, 0) {
-			let chapter_num = []
-			if it.element.numbering != none {
-				chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
-			} else {
-				// Ugly hack: bibliography is the only unnumbered top-level entry
-				v(18.5pt, weak: true)
-				link(it.element.location(), strong(linguify("bibliography")))
-				h(1fr)
-				link(it.element.location(), strong(it.page))
-				return
-			}
+			show outline.entry: it => {
+				let chapter_num = []
+				if it.element.numbering != none {
+					chapter_num = numbering(it.element.numbering, ..counter(heading).at(it.element.location()))
+				} else {
+					// Ugly hack: bibliography is the only unnumbered top-level entry
+					v(18.5pt, weak: true)
+					link(it.element.location(), strong(linguify("bibliography")))
+					h(1fr)
+					link(it.element.location(), strong(it.page))
+					return
+				}
 
-			if it.level == 1 {
-				v(18.5pt, weak: true)
-				link(it.element.location())[
-					#strong(chapter_num)
-					#strong(it.element.body)
-				]
-				h(1fr)
-				link(it.element.location(), strong(it.page))
-			} else {
-				h(2pt)
-				link(it.element.location())[
-					#chapter_num
-					#it.element.body
-				]
-				h(6pt)
-				box(width: 1fr, repeat[.#h(4pt)])
-				h(16pt)
-				link(it.element.location(), it.page)
+				if it.level == 1 {
+					v(18.5pt, weak: true)
+					link(it.element.location())[
+						#strong(chapter_num)
+						#strong(it.element.body)
+					]
+					h(1fr)
+					link(it.element.location(), strong(it.page))
+				} else {
+					h(2pt)
+					link(it.element.location())[
+						#chapter_num
+						#it.element.body
+					]
+					h(6pt)
+					box(width: 1fr, repeat[.#h(4pt)])
+					h(16pt)
+					link(it.element.location(), it.page)
+				}
 			}
+			body
 		} else {
-			panic("Not implemented yet!")
+			show outline.entry: set outline.entry(fill: none)
+			show outline.entry.where(level: 1): set block(above: 18.5pt)
+			show outline.entry: it => link(
+				it.element.location(), {
+					if it.level == 1 {
+						if it.element.numbering == none {
+							// Ugly hack: bibliography is the only unnumbered top-level entry
+							strong(it.indented(none, [
+								#linguify("bibliography")
+								#h(1fr)
+								#it.page()
+							]))
+						} else {
+							strong(it.indented(it.prefix(), it.inner(), gap: -2pt))
+						}
+					} else if it.level == 2 {
+						it.indented([#h(0.25em)#it.prefix()], [
+							#it.element.body
+							#h(6pt)
+							#box(width: 1fr, repeat([.], gap: 4pt))
+							#h(16pt)
+							#it.page()
+						], gap: -2pt)
+					} else if it.level == 3 {
+						it.indented([#h(0.38em)#it.prefix()], [
+							#it.element.body
+							#h(6pt)
+							#box(width: 1fr, repeat([.], gap: 4pt))
+							#h(16pt)
+							#it.page()
+						], gap: -2pt)
+					}
+				}
+			)
+			body
 		}
 	}
 
