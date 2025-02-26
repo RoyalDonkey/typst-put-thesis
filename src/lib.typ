@@ -97,7 +97,7 @@
 			}
 			body
 		} else {
-			show outline.entry: set outline.entry(fill: [#box(width: 1fr, repeat([.], gap: 4pt))#h(16pt)])
+			set outline.entry(fill: [#box(width: 1fr, repeat([.], gap: 4pt))#h(16pt)])
 			show outline.entry.where(level: 1): set block(above: 18.5pt)
 			show outline.entry.where(level: 1): set outline.entry(fill: none)
 			show outline.entry.where(level: 1): it => link(
