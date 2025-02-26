@@ -118,7 +118,10 @@
 	}
 
 	// Style bibliography
-	set bibliography(title: linguify("bibliography"))
+	// As of writing this, passing linguify("bibliography") as title does not work,
+	// so a workaround is needed (see https://github.com/typst-community/linguify/issues/23).
+	let bib_title = if lang == "pl" { "Literatura" } else { "References" }
+	set bibliography(title: bib_title)
 	show bibliography: it => {
 		show heading.where(level: 1): set text(size: 20pt)
 		show heading.where(level: 1): set block(inset: ("y": 77pt), below: -30pt)
