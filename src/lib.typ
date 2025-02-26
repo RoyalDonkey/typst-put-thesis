@@ -97,40 +97,22 @@
 			}
 			body
 		} else {
-			show outline.entry: set outline.entry(fill: none)
+			show outline.entry: set outline.entry(fill: [#box(width: 1fr, repeat([.], gap: 4pt))#h(16pt)])
 			show outline.entry.where(level: 1): set block(above: 18.5pt)
-			show outline.entry: it => link(
-				it.element.location(), {
-					if it.level == 1 {
-						if it.element.numbering == none {
-							// Ugly hack: bibliography is the only unnumbered top-level entry
-							strong(it.indented(none, [
-								#linguify("bibliography")
-								#h(1fr)
-								#it.page()
-							]))
-						} else {
-							strong(it.indented(it.prefix(), it.inner(), gap: -2pt))
-						}
-					} else if it.level == 2 {
-						it.indented([#h(0.25em)#it.prefix()], [
-							#it.element.body
-							#h(6pt)
-							#box(width: 1fr, repeat([.], gap: 4pt))
-							#h(16pt)
-							#it.page()
-						], gap: -2pt)
-					} else if it.level == 3 {
-						it.indented([#h(0.38em)#it.prefix()], [
-							#it.element.body
-							#h(6pt)
-							#box(width: 1fr, repeat([.], gap: 4pt))
-							#h(16pt)
-							#it.page()
-						], gap: -2pt)
-					}
-				}
+			show outline.entry.where(level: 1): set outline.entry(fill: none)
+			show outline.entry.where(level: 1): it => link(
+				it.element.location(),
+				strong(it.indented(it.prefix(), it.inner(), gap: 0pt)),
 			)
+			show outline.entry.where(level: 2): it => link(
+				it.element.location(),
+				it.indented([#h(2.5pt)#it.prefix()], it.inner(), gap: 0pt),
+			)
+			show outline.entry.where(level: 3): it => link(
+				it.element.location(),
+				it.indented(it.prefix(), it.inner(), gap: 1pt),
+			)
+
 			body
 		}
 	}
@@ -228,8 +210,13 @@
 	show figure.where(kind: table): set figure.caption(position: top)
 
 	// Style bibliography
-	set bibliography(title: text(size: 20pt)[#v(77pt)#linguify("bibliography")#v(39pt)])
-	show bibliography: set text(size: 9pt)
+	set bibliography(title: linguify("bibliography"))
+	show bibliography: it => {
+		show heading.where(level: 1): set text(size: 20pt)
+		show heading.where(level: 1): set block(inset: ("y": 77pt), below: -30pt)
+		set text(size: 9pt)
+		it
+	}
 
 	body
 }
