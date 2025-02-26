@@ -117,6 +117,15 @@
 		}
 	}
 
+	// Style bibliography
+	set bibliography(title: linguify("bibliography"))
+	show bibliography: it => {
+		show heading.where(level: 1): set text(size: 20pt)
+		show heading.where(level: 1): set block(inset: ("y": 77pt), below: -30pt)
+		set text(size: 9pt)
+		it
+	}
+
 	front-matter((
 		lang: lang,
 		ttype: ttype,
@@ -208,16 +217,6 @@
 		it.body
 	}
 	show figure.where(kind: table): set figure.caption(position: top)
-
-	// Style bibliography
-	set bibliography(title: linguify("bibliography"))
-	show bibliography: it => {
-		show heading.where(level: 1): set text(size: 20pt)
-		show heading.where(level: 1): set block(inset: ("y": 77pt), below: -30pt)
-		set text(size: 9pt)
-		it
-	}
-
 	body
 }
 
