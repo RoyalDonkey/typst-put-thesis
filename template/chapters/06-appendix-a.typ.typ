@@ -84,7 +84,7 @@ are equivalent:
 ])
 
 For more information, refer to:
-- https://typst.app/docs/reference/model/list/#definitions-item
+- https://typst.app/docs/reference/model/list/
 - https://typst.app/docs/reference/model/enum/
 - https://typst.app/docs/reference/model/terms/
 
