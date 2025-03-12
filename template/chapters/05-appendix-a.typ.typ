@@ -169,7 +169,7 @@ cases may require manual tweaking or call for better tools.
 The quadratic equation, as seen on~@eq:quadratic.
 
 $
-	x = (-b +- sqrt(b^2 - 4 a c)) / (2 a)
+	x = (-b plus.minus sqrt(b^2 - 4 a c)) / (2 a)
 $ <eq:quadratic>
 
 And the arc length of a continuous function can be calculated using
