@@ -105,8 +105,8 @@
 	set page(numbering: none)
 	set text(size: 8.5pt)
 	set par(leading: 0.5em)
-	place(left + bottom, dy: 11pt)[
-		#image("../assets/logo-pp.svg", width: 15mm),
+	place(left + bottom, dy: -5pt)[
+		#image("../assets/logo-pp.svg", width: 15mm)
 	]
 	place(left + bottom, dx: 19.5mm, dy: 2pt)[
 		$copyright$
