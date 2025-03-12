@@ -13,8 +13,7 @@ was adapted from a template for the faculty of Computing and Telecommunications
 adjustable to any faculty or field of study.
 
 ## Usage
-
-TODO
+Copy the provided template and work from there.
 
 ## Acknowledgements
 The Typst implementation was partially inspired by RefDevX's
