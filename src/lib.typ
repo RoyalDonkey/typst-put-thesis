@@ -31,6 +31,9 @@
 	/// Font family name (override); string
 	font: "CMU Serif",
 
+	/// Whether to alternate page numbering on left and right for odd and even pages; bool
+	book-print: false,
+
 	body,
 ) = {
 	if sys.version < version(0, 12, 0) {
@@ -39,6 +42,7 @@
 	assert(lang == "pl" or lang == "en", message: "Only \"pl\" or \"en\" languages are currently supported.")
 	assert(ttype == "bachelor" or ttype == "master", message: "Only \"bachelor\" or \"master\" thesis types are currently supported.")
 	set-database(toml("./lang.toml"))
+	state("book-print").update(book-print)
 
 	set document(
 		title: title,

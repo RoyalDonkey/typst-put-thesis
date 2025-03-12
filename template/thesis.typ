@@ -15,6 +15,11 @@
 	// Override only if you're not from WIiT/CAT faculty or CompSci institute
 	// faculty: "My faculty",
 	// institute: "My institute",
+	
+	// Enable to have alternating page numbers for odd/even pages. This is
+	// standard practice in books and may be useful if you want to print your
+	// thesis.
+	book-print: false,
 )
 #abstract[
 	Write your abstract here.

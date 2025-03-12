@@ -70,9 +70,15 @@
 	let chapter = hydra(2, skip-starting: false)
 	let page_num = numbering("1", ..counter(page).at(here()))
 
-	emph(chapter)
-	h(1fr)
-	page_num
+	if not state("book-print").get() or calc.odd(here().page()) {
+		emph(chapter)
+		h(1fr)
+		page_num
+	} else {
+		page_num
+		h(1fr)
+		emph(chapter)
+	}
 }
 
 #let footer() = context {
