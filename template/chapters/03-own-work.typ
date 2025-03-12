@@ -1,112 +1,45 @@
-// An opinionated 3rd party library for rendering prettier source code blocks.
-// You may get rid of it or replace it with something else if you like.
-// https://typst.app/universe/package/codly
-#import "@preview/codly:1.2.0": *
-#import "@preview/codly-languages:0.1.1": *
-#show: codly-init.with()
+= Own work <chap:own-work>
 
-// Auxiliary functions for fixing the vertical offset of icons.
-// This is a font-dependent hack (Noto Color Emoji font). You could use
-// FontAwesome or Nerd Fonts for better results.
-#let icon-text(body) = box()[#v(-1pt)#body#v(1pt)]
-#let icon(body) = box()[#v(-2pt)#body#v(2pt)]
-// Configure codly. Optional.
-#codly(
-	languages: (
-		c: (name: [C], icon: none, color: black),
-		cpp: (name: [C++], icon: none, color: black),
-		py: (name: icon-text(text(rgb("#003070"))[Python]), icon: icon[🐍], color: blue),
-		rust: (name: icon-text(text(red)[Rust]), icon: icon[🦀], color: rgb("#CE412B")),
-	)
-)
+"Own work" is a a very informal title that should be redacted to whatever makes
+sence for a particular thesis.
 
-= Own work
-#lorem(400)
-#figure(
-	image("../img/plot.svg", width: 80%),
-	caption: [Sine wave],
-)
-#lorem(300)
+In general, this is where one or more chapters must document the original work
+done by the authors -- from the idea and the methodology used to solve the
+problem, to technical descriptions of the solution -- formal documentation,
+conducted tests, research and the final results.
 
-== Implementation details
+The work must contain pieces of original work done by the authors, adequate to
+their practical knowledge acquired during their studies. "Original work" can be
+understood as e.g.: creation of a software application or a part of it,
+proposal of an algorithm to solve a particular problem, design of a computer
+system or network, analysis and evaluation of new technologies or solutions used
+in the industry, etc.
 
-=== Programming languages
-#block(breakable: false)[
-	Take some time to examine @hello-c.
-	#figure(
-		```c
-		#include <stdio.h>
+The authors are expected to include a full documentation of their work,
+including any made assumptions and the method of realization of each task, along
+with an evaluation and description of encountered problems. In the case of
+implementation-focused works, this section is replaced by a technical
+documentation and a user's documentation of the developed system or program.
 
-		int main(int argc, char **argv)
-		{
-			printf("Hello, world!\n");
-			return 0;
-		}
-		```,
-		caption: [The best program, written in the C programming language.],
-	) <hello-c>
-]
+*Do not include the full source code* of the developed solutions inside the body
+of the thesis. Any software written for the purpose of the thesis, as well as
+results of experiments, should be uploaded to the PUT online repository or
+shared via a medium, e.g. a CD disk, as an addition to the
+work#footnote[Uploading and linking to online services such as GitHub is also
+	acceptable.].
 
-While @hello-c is written in the best programming language, here is a version
-in a much inferior, offspring language, C++:
+== Writing style
 
-#codly(highlights: ((line: 5, start: 3, fill: red),))
-#figure(
-	```cpp
-	#include <iostream>
+Passive mode is preferred#footnote[Remarks on the style of writing partially
+	originate from the web pages of prof. Maciej Drozdowski~@Drozdowski2006.],
+i.e. "... was considered", "... was implemented", and not: "I considered ...",
+"I implemented ...". References to earlier parts should be written as follows:
+"As mentioned earlier, ...", "As shown above, ...". Avoid long sentences.
 
-	int main(int argc, char **argv)
-	{
-		std::cout << "Hello, world!" << std::endl;
-		return 0;
-	}
-	```,
-	caption: [The best program, made slightly worse.],
-) <hello-cpp>
+Informal language is strictly prohibited. It is imperative to use well-defined,
+precise terminology that carries clear meaning.
 
-Highlighted red, you can see one of the earliest red flags in the design of the
-C++ language.
-
-Scripting languages also deserve credit. @hello-python showcases a
-version of the same program, this time written in Python.
-
-#figure(
-	```py
-	print("Hello, world!")
-	```,
-	caption: [The best program, for the lazy.],
-) <hello-python>
-
-Last but not least, let us consider a representative of a newer front of
-memory-safe languages, Rust. The code can be seen on @hello-rust.
-
-#figure(
-	```rust
-	fn main() {
-		println!("Hello, world!");
-	}
-	```,
-	caption: [The best program, memory safe#footnote[mostly, see @cve-rs]],
-) <hello-rust>
-
-
-=== Ranking
-Now that we have seen what the different languages can do and how they present
-themselves, a natural question arises: Which one to use? @tab:ranking shows an
-objective, unopinionated ranking of all languages.
-#figure(
-	table(
-		stroke: none,
-		columns: (3),
-		align: (center, left, left),
-		table.hline(),
-		table.header[*Rank*][*Language*][*Comment*],
-		table.hline(),
-		[1], [C], [The undisputed king.],
-		[2], [Python], [You may disagree, but you cannot argue with its practicality.],
-		[3], [Rust], [Rust is on trial. It could become fantastic, let us hope so.],
-		[4], [C++], [It's a mess. I just don't like it.],
-		table.hline(),
-	),
-	caption: [Ranking of all languages],
-) <tab:ranking>
+Directly copying & pasting from external sources is strictly prohibited as
+plagiarism and proof of intellectual indolence of the authors. Each matter is to
+be described using the authors' own words. It is sometimes necessary to cite
+external sources.

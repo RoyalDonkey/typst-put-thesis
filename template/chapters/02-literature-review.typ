@@ -1,45 +1,20 @@
-= Literature review
-== Field overview
-#lorem(70)
+= Literature review <chap:literature>
 
-#lorem(39)
+A theoretical chapter -- literature review shedding some light onto the current
+state of knowledge on the topic.
 
-#lorem(70)
+Literature review comprises in-depth summaries of relevant works in the field.
+The discussed resources must be cited and jointly listed near the end of the
+thesis in Bibliography (or References, or similar). All positions listed in
+Bibliography must be referenced at least once within the body of the thesis (no
+"orphaned" references allowed). *Do not include references in the page footer.*
 
-== Selection of important works
-=== Daring work D
-#lorem(30)
+It is mandatory to cite the sources of all the information present in the
+thesis. This includes figures, tables, source code snippets, etc. In the case
+of information taken from the Internet, the relevant web page addresses must
+also be included.
 
-The quadratic equation, as seen on @eq:quadratic.
-
-$
-	x = (-b +- sqrt(b^2 - 4 a c)) / (2 a)
-$ <eq:quadratic>
-
-#lorem(50)
-
-=== Eloquent work E <sec:work-e>
-#lorem(170)
-
-The arc length of a continuous function can be calculated using @eq:arc-length.
-
-$
-	S = integral_a^b sqrt(1 + (f'(x))^2) dif x
-$ <eq:arc-length>
-
-#lorem(20)
-
-=== Frenetic work F
-Unlike @sec:work-e, work F was quite frenetic and, frankly, less
-methodologically sound. Nevertheless, through the authors' unrelenting
-stubbornness, it yielded interesting results that pushed the state of knowledge
-in the field forward.
-
-#lorem(40)
-
-#lorem(50)
-
-=== Glamorous work G
-#lorem(22)
-
-#lorem(80)
+Typst has native support for LaTeX's \*.bib format for bibliography files, so
+you may use them freely. As of version 0.13.0, the support for bibliography
+styles is limited, so it is usually best to just use one of the provided
+defaults (e.g. "ieee").

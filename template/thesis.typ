@@ -26,11 +26,10 @@
 #include("chapters/01-introduction.typ")
 #include("chapters/02-literature-review.typ")
 #include("chapters/03-own-work.typ")
-#include("chapters/04-results.typ")
-#include("chapters/05-conclusions.typ")
+#include("chapters/04-conclusions.typ")
 
 #pagebreak(weak: true)
 #bibliography("references.bib", style: "ieee")
 
 #show: appendices
-#include("chapters/06-appendix-a.typ.typ")
+#include("chapters/05-appendix-a.typ.typ")

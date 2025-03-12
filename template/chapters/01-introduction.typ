@@ -1,43 +1,52 @@
-= Introduction
+= Introduction <chap:intro>
 
 == Topic and scope of this thesis <sec:topic-and-scope>
 This is not an actual thesis. It is a boilerplate document meant to showcase
 the put-thesis Typst template for writing scientific dissertations for Poznań
-University of Technology. The stylistic choices are largely inspired by
-@template2022 and @Drozdowski2006.
+University of Technology. The stylistic choices are largely inspired
+by~@template2022 and~@Drozdowski2006.
 
-== Research gap
-#lorem(70)
+== The rules of introductions
+The introduction chapter should include the following information:
 
-- #lorem(10)
+- a brief explanation of why the topic was chosen;
 
-- #lorem(20)
+- the goal of the work (see below);
 
-- #lorem(12)
+- scope of work -- how the work will be done, and to what extent;
 
-#lorem(50)
+- potential hypotheses, which the authors will aim to test or prove;
 
-== Contributions
-#lorem(20)
+- a brief summary of sources and inspirations, especially literature;
 
-=== Awesome contribution A
-#lorem(30)
+- the structure of the work (see below), i.e. a terse characteristics of the
+	contents of each chapter;
 
-=== Beautiful contribution B
-#lorem(40)
+- possibly remarks regarding the implementation, e.g. difficulties which were
+	encountered along the way, comments on the equipment that was used,
+	partnerships with third-party companies.
 
-=== Creative contribution C
-#lorem(20)
+#linebreak()
+/ Introduction #underline[must] conclude with the following two paragraphs\::
+	#v(1mm)
+	1. #quote(block: true)[
+		The goal of this thesis is to research / analyze / design / ...
+	]
+	2. #quote(block: true)[
+		The structure of the thesis is as follows. @chap:literature contains a
+		review of literature on ... . @chap:own-work is dedicated to ... (a few
+		sentences). @chap:conclusions concludes the work.
+	]
 
-== Thesis organization
-#lorem(10)
+#v(1em)
+In case of Bachelor theses done in groups, or Master theses done in pairs,
+after the aforementioned two paragraphs, there #underline[must] be a paragraph
+detailing how work was divided among the group members. For example:
+#v(-1em)
+#quote(block: true)[
+	Throughout the process of making this thesis, Jane Doe was responsible for
+	creating the design for ... and .... She identified the issues present in
+	... and proposed ..., etc.
 
-+ #lorem(25)
-
-+ #lorem(29)
-
-+ #lorem(35)
-
-+ #lorem(24)
-
-+ #lorem(10)
+	Joe Briggs contributed ..., etc.
+]
