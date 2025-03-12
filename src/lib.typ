@@ -169,7 +169,7 @@
 
 	// Use localized supplement names
 	set heading(numbering: "1.1  ", supplement: linguify("section"))
-	set math.equation(supplement: linguify("equation"))
+	set math.equation(supplement: none)
 	show figure.where(kind: image): set figure(supplement: linguify("figure-image"))
 	show figure.where(kind: table): set figure(supplement: linguify("figure-table"))
 	show figure.where(kind: raw): set figure(supplement: linguify("figure-code"))
