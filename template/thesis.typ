@@ -9,7 +9,7 @@
 		("Second author", 222222),
 		("Third author", 333333),
 	),
-	supervisor: "Name of the supervisor",
+	supervisor: "prof. dr hab. inż. Name",
 	year: 2025,  // Year of final submission (not graduation!)
 
 	// Override only if you're not from WIiT/CAT faculty or CompSci institute
