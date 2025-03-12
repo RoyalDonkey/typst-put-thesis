@@ -1,4 +1,4 @@
-#import "src/lib.typ": *
+#import "@preview/put-thesis:0.1.0": *
 
 #show: put-thesis.with(
 	lang: "en",  // or "pl"
