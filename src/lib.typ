@@ -201,7 +201,7 @@
 	// Number figures relative to the current chapter
 	set figure(numbering: dependent-numbering("1.1", levels: 1))
 	set math.equation(numbering: it => {
-		let count = counter(heading.where(level: 1)).at(here()).first()
+		let count = counter(heading).get().first()
 		numbering("(1.1)", count, it)
 	})
 	show heading: reset-counter(counter(figure.where(kind: image)))
@@ -240,6 +240,13 @@
 		}
 	}
 	counter(heading).update(0)
+
+	// Update figure numbering style to "A.1"
+	set figure(numbering: dependent-numbering("A.1", levels: 1))
+	set math.equation(numbering: it => {
+		let count = counter(heading).get().first()
+		numbering("(A.1)", count, it)
+	})
 
 	body
 }
