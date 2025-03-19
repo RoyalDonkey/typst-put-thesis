@@ -29,7 +29,7 @@
 	institute: linguify("institute"),
 
 	/// Font family name (override); string
-	font: "CMU Serif",
+	font: "New Computer Modern",
 
 	/// Whether to alternate page numbering on left and right for odd and even pages; bool
 	book-print: false,

@@ -25,7 +25,7 @@
 	// faculty: "My faculty",
 	// institute: "My institute",
 	
-	// Override to use a different font family. Default is "CMU Serif".
+	// Override to use a different font family. Default is "New Computer Modern".
 	// If writing locally, the font must be installed on the system.
 	// If writing online and the font is not supported out-of-the-box, the font
 	// files must be manually uploaded and should be detected automatically,
