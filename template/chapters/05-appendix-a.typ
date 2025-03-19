@@ -5,18 +5,14 @@
 #import "@preview/codly-languages:0.1.1": *
 #show: codly-init.with()
 
-// Auxiliary functions for fixing the vertical offset of icons.
-// This is a font-dependent hack (Noto Color Emoji font). You could use
-// FontAwesome or Nerd Fonts for better results.
-#let icon-text(body) = box()[#v(-1pt)#body#v(1pt)]
-#let icon(body) = box()[#v(-2pt)#body#v(2pt)]
 // Configure codly. Optional.
 #codly(
 	languages: (
-		c: (name: [C], icon: none, color: black),
+		c: (name: [C], color: black),
 		cpp: (name: [C++], icon: none, color: black),
-		py: (name: icon-text(text(rgb("#003070"))[Python]), icon: icon[🐍], color: blue),
-		rust: (name: icon-text(text(red)[Rust]), icon: icon[🦀], color: rgb("#CE412B")),
+		py: (name: text(rgb("#003070"))[Python], color: blue),
+		lua: (name: text(rgb("#003070"))[Lua], color: blue),
+		rust: (name: text(red)[Rust], color: rgb("#CE412B")),
 	)
 )
 #codly-disable()
@@ -25,10 +21,10 @@
 
 == Quick rules for better style
 
-- Do not use headings above level 3 (`====` is very bad). If you _really_ need more, then
-	1. You probably don't. Rethink your section structure.
+- Do not use headings above level 3 (`====` is very bad). If you _really_ need more, then:
+	1. You probably don't. Rethink your document structure.
 	2. You _really_ probably don't. See above.
-	3. Use unnumbered sections or terms lists.
+	3. Use unnumbered headings or terms lists.
 
 - Do not overuse *strong* (or *bold*) text. It is distracting for the reader
 	and blends in with headings. For emphasis, use _emphasis_. Duh.
@@ -39,6 +35,12 @@
 	- In American typography, _em dash_ '---' (`---`) often serves this purpose,
 		and it is used without surrounding spaces, e.g. "make no mistake---it's
 		easy". Use either style, but stick to one and one only!
+
+- Make sure that all negative numbers in your prose are typeset using the correct
+	minus sign, i.e. "-1", and not a regular hyphen: "\-1". Typst does this
+	automatically in most cases, but the distinction is important to know. If
+	you want the regular hyphen for some special reason and need to circumvent
+	Typst's automatic substitution, escape the sign: "`\-`".
 
 - Use ```typst #block(breakable: false)[ ... ]``` for content that should stay
 	on the same page, e.g.: #align(center)[
@@ -63,20 +65,19 @@
 
 - Use non-breaking space (typeset using 'tilda' `~`) to prevent awkward line
 	endings. In particular, before every`~@ref` that appears in the middle of a
-	sentence. Note that, unlike LaTeX, Typst does not add extra spacing after
-	each period and tries to recognize sentence endings in a slightly more
-	intelligent way, so it is not necessary to write `e.g.~like this` every
-	time, but you should still be mindful about it.
+	sentence.
 
-#pagebreak(weak: true)
 == Numbered, unnumbered, terms, tight and wide lists
 Typst has numbered, unnumbered and terms lists. All 3 types also can be tight
 or wide:
 
 #align(center, table(
 	columns: (4),
+	stroke: none,
 	align: (left + horizon),
+	table.hline(),
 	table.header[][*Numbered*][*Unnumbered*][*Terms*],
+	table.hline(),
 	[*Tight*],
 	[
 		Paragraph before.
@@ -99,6 +100,7 @@ or wide:
 		/ Three: This is 3.
 		Paragraph after.
 	],
+	table.hline(),
 	[*Wide*],
 	[
 		Paragraph before.
@@ -127,6 +129,7 @@ or wide:
 		/ Three: This is 3.
 		Paragraph after.
 	],
+	table.hline(),
 ))
 
 Numbering of lists can be done explicitly or automatically. Both examples below
@@ -181,58 +184,105 @@ $ <eq:arc-length>
 
 == Plots and images
 Typst has native support for various image formats. Vector formats such as SVG
-are preferred over raster ones.
+are preferred over raster ones, unless there is a good reason against it (e.g.
+an extremely high number of objects which slows down the document).
+#footnote[A comparison of various graphics formats (pl): https://www.youtube.com/watch?v=_98SDNIpm24]
 
-For plotting, there are 3rd party native libraries such as
+#block(breakable: false)[
+	As a rule of thumb, figures should be placed at the top of a page, where they
+	do not disrupt the flow of reading. Typst can and will do this automatically in
+	this template, similar to LaTeX (but only for image figures -- a decision
+	made by the template authors). To enforce a placement of a figure, override
+	the `placement` option of the ```typst #figure()``` function, like so:
+	#align(center)[
+		```typst
+		#figure(
+			...,
+			placement: none,  // Other settings: top (default), bottom, auto
+		)
+		```
+	]
+]
+
+For plotting, there are native 3rd party libraries such as
 #link("https://typst.app/universe/package/cetz-plot")[cetz-plot], although it
-may be better to use an entirely independent, mature plotting framework such as
-Gnuplot, ggplot2, or Matplotlib and export SVG images.
+may be better to use an independent, mature plotting framework such as Gnuplot,
+ggplot2, or Matplotlib and export SVG images.
 
 #figure(
 	image("../img/plot.svg", width: 80%),
 	caption: [Sine wave (made with Gnuplot)],
 )
 
-== Conjugating the supplement in Polish writing
+More information on figures:
+- https://typst.app/docs/reference/model/figure
+
+== Tables
+Tables should also be enclosed in ```typst #figure()``` functions, to enable
+giving them captions and referring to them. They are little trickier to
+typeset, but Typst has good documentation which you are encouraged to read:
+https://typst.app/docs/reference/model/table/.
+
+You will notice that table captions are placed _above_ their content, not below
+like with the rest of figures. This is the official way endorsed by Poznań
+University of Technology.
+
 #block(breakable: false)[
-	In Polish writing, when using automatic references, the conjugation of the
-	supplement poses a slight challenge. For Polish writers:
-
-	#box(stroke: 1pt, inset: 8pt)[
-		#set text(lang: "pl")
-		Jeśli zdanie wymaga formy mianownikowej suplementu ("Sekcja"), to nie ma
-		problemu. Piszemy wtedy po prostu:
+	Here is an example on how to define @tab:example:
+	#columns(2)[
 		```typst
-		@sec:topic-and-scope opowiada o temacie pracy.
+		#figure(
+			table(
+				columns: 2,
+				align: (left, right),
+				stroke: none,
+				table.hline(),
+				table.header[*Item*][*Price* [zł]],
+				table.hline(),
+				[bread], [5.40],
+				[butter], [6.20],
+				table.hline(),
+			),
+			caption: [This is my table],
+		) <tab:example>
 		```
-		Ale gdybyśmy chcieli napisać "W Sekcji 1.1, ...", potrzebujemy odpowiedniej
-		odmiany, której Typst nie zagwarantuje. Przykładowo, taki kod:
-		```typst
-		W~@sec:topic-and-scope omawiany jest temat pracy.
-		```
-		Zostanie przełożony na "W~@sec:topic-and-scope omawiany jest temat pracy", co jest
-		gramatycznie niepoprawne i nieładnie wygląda. W takich sytuacjach zalecane
-		jest tymczasowe nadpisanie tzw. suplementu (w tym wypadku słowa "Sekcja"):
-		```typst
-		W~@sec:topic-and-scope[Sekcji] omawiany jest temat pracy.
-		```
-		Taka forma skutkuje poprawnym "W~@sec:topic-and-scope[Sekcji] omawiany jest
-		temat pracy". Równocześnie, całe sformułowanie
-		"@sec:topic-and-scope[Sekcji]" będzie poprawnie wygenerowane jako klikalny
-		odnośnik do odpowiedniego miejsca w pracy.
-
-		To samo tyczy się odwołań do rysunków, tabel, równań, etc. Dla ciekawskich,
-		dokumentacja funkcji ```typst ref()```, która jest wywoływana pod spodem
-		dla każdego odwołania:\ https://typst.app/docs/reference/model/ref/.
+		#colbreak()
+		#figure(
+			table(
+				columns: 2,
+				align: (left, right),
+				stroke: none,
+				table.hline(),
+				table.header[*Item*][*Price* [zł]],
+				table.hline(),
+				[bread], [5.40],
+				[butter], [6.20],
+				table.hline(),
+			),
+			caption: [This is my table],
+		) <tab:example>
 	]
 ]
 
+=== Aligning number columns
+For tables containing number columns, the numbers should be vertically aligned
+with respect to the decimal point, for visual aid. Unfortunately, as of Typst
+0.13.0, there is no built-in way to achieve this
+(see~https://github.com/typst/typst/issues/170).
+
+One workaround is aligning number columns to the right and manually giving them
+proper padding (with 0s or fixed-width spaces). If that is not enough, you may
+use a community package, e.g.
+#link("https://typst.app/universe/package/zero")[zero].
+
 == Source code
+Much like tables and images, source code typically resides within a
+```typst #figure()``` function, where it can be captioned and labeled.
+Typst has native support for source code blocks, with syntax highlighting
+readily available for a plethora of programming languages.
 
 #block(breakable: false)[
-	Typst has native support for source code blocks with syntax highlighting.
-
-	Take some time to examine~@hello-c.
+	Out-of-the-box, it looks like this:
 	#figure(
 		```c
 		#include <stdio.h>
@@ -244,13 +294,12 @@ Gnuplot, ggplot2, or Matplotlib and export SVG images.
 		}
 		```,
 		caption: [The best program, written in the C programming language.],
+		placement: none,
 	) <hello-c>
 ]
 
-These code blocks interact well with figure environments and can be referenced
-easily out-of-the-box. But for extra punch, we can use a 3rd party package such
-as #link("https://typst.app/universe/package/codly")[codly] to prettify source
-code even further and get more features such as highlighting parts of our code.
+For extra punch, we can use a 3rd party package such as
+#link("https://typst.app/universe/package/codly")[codly] to prettify the output and get more features such as highlighting parts of our code.
 
 #codly-enable()
 While~@hello-c is written in the best programming language, here is a version
@@ -268,6 +317,7 @@ in a much inferior, offspring language, C++:
 	}
 	```,
 	caption: [The best program, made slightly worse.],
+	placement: none,
 ) <hello-cpp>
 
 Highlighted red, you can see one of the earliest red flags in the design of the
@@ -281,7 +331,11 @@ version of the same program, this time written in Python.
 	print("Hello, world!")
 	```,
 	caption: [The best program, for the lazy.],
+	placement: none,
 ) <hello-python>
+
+Coincidentally, @hello-python also happens to be valid code in Lua, doing
+exactly the same thing!
 
 Last but not least, let us consider a representative of a newer front of
 memory-safe languages, Rust. The code can be seen on~@hello-rust.
@@ -293,26 +347,5 @@ memory-safe languages, Rust. The code can be seen on~@hello-rust.
 	}
 	```,
 	caption: [The best program, memory safe#footnote[Well, more or less. See~@cve-rs.]],
+	placement: none,
 ) <hello-rust>
-
-
-=== Ranking
-Now that we have seen what the different languages can do and how they present
-themselves, a natural question arises: Which one to use? @tab:ranking shows an
-objective, unopinionated ranking of all languages.
-#figure(
-	table(
-		stroke: none,
-		columns: (3),
-		align: (center, left, left),
-		table.hline(),
-		table.header[*Rank*][*Language*][*Comment*],
-		table.hline(),
-		[1], [C], [The undisputed king.],
-		[2], [Python], [You may disagree, but you cannot argue with its practicality.],
-		[3], [Rust], [Rust is on trial. It could become fantastic, let us hope so.],
-		[4], [C++], [It's a mess. I just don't like it.],
-		table.hline(),
-	),
-	caption: [Ranking of all languages],
-) <tab:ranking>
