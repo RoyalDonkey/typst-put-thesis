@@ -60,6 +60,10 @@
 	set text(size: 10pt, font: font, lang: lang)
 	set par(justify: true, leading: 0.83em)
 
+	// Typst does not have the correct smartquote formatting for Polish by default.
+	// FIXME: This does not work for some reason.
+	show text.where(lang: "pl"): set smartquote(quotes: (single: "‚’", double: auto))
+
 	set outline(
 		title: text(size: 20pt)[#v(77pt)#linguify("toc")#v(39pt)],
 		indent: auto,
