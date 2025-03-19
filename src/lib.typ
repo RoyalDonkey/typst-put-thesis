@@ -57,7 +57,7 @@
 			bottom: 2.5cm,
 		),
 	)
-	set text(size: 10pt, font: "CMU Serif", lang: lang)
+	set text(size: 10pt, font: font, lang: lang)
 	set par(justify: true, leading: 0.83em)
 
 	set outline(
