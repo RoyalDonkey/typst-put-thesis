@@ -169,6 +169,9 @@
 	show heading.where(level: 9): set heading(numbering: none, outlined: false)
 	// If you need more than 9 level of headings, there is something wrong with you
 
+	// Float figures to the top (I know, I know, sue me!)
+	set figure(placement: top)
+
 	// Number figures relative to the current chapter
 	set figure(numbering: dependent-numbering("1.1", levels: 1))
 	set math.equation(numbering: it => {
