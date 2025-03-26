@@ -209,8 +209,7 @@ an extremely high number of objects which slows down the document).
 #block(breakable: false)[
 	As a rule of thumb, figures should be placed at the top of a page, where they
 	do not disrupt the flow of reading. Typst can and will do this automatically in
-	this template, similar to LaTeX (but only for image figures -- a decision
-	made by the template authors). To enforce a placement of a figure, override
+	this template, similar to LaTeX. To enforce a placement of a figure, override
 	the `placement` option of the ```typst #figure()``` function, like so:
 	#align(center)[
 		```typst
