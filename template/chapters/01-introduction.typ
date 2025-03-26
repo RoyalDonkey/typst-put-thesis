@@ -8,7 +8,8 @@ by~@template2022 and~@Drozdowski2006.
 
 This document is written for Polish and International students alike.
 Information pertaining to all is written in English. Tips and guidelines
-specific to the Polish language are written, you guessed it, in Polish.
+specific to the Polish language are also sprinkled throughout, with lengthier
+topics covered in @chap:polish-tips.
 
 == The rules of introductions
 The introduction chapter should include the following information:

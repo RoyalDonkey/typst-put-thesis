@@ -11,7 +11,6 @@
 		c: (name: [C], color: black),
 		cpp: (name: [C++], icon: none, color: black),
 		py: (name: text(rgb("#003070"))[Python], color: blue),
-		lua: (name: text(rgb("#003070"))[Lua], color: blue),
 		rust: (name: text(red)[Rust], color: rgb("#CE412B")),
 	)
 )
@@ -73,7 +72,7 @@
 	should be typeset in `a_monospace_font`. Typst supports inline code
 	highlighting: ```c main(int argc, char **argv)```.
 
-- Use non-breaking space (typeset using 'tilda' `~`) to prevent awkward line
+- Use non-breaking space (typeset using tilde "`~`") to prevent awkward line
 	endings. In particular, before every`~@ref` that appears in the middle of a
 	sentence.
 

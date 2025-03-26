@@ -1,4 +1,4 @@
-= Tips for Polish writers
+= Tips for Polish writers <chap:polish-tips>
 #set text(lang: "pl")
 
 
