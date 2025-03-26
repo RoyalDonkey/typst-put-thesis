@@ -89,66 +89,70 @@
 Typst has numbered, unnumbered and terms lists. All 3 types also can be tight
 or wide:
 
-#align(center, table(
-	columns: (4),
-	stroke: none,
-	align: (left + horizon),
-	table.hline(),
-	table.header[][*Numbered*][*Unnumbered*][*Terms*],
-	table.hline(),
-	[*Tight*],
-	[
-		Paragraph before.
-		1. One
-		2. Two
-		3. Three
-		Paragraph after.
-	],
-	[
-		Paragraph before.
-		- One
-		- Two
-		- Three
-		Paragraph after.
-	],
-	[
-		Paragraph before.
-		/ One: This is 1.
-		/ Two: This is 2.
-		/ Three: This is 3.
-		Paragraph after.
-	],
-	table.hline(),
-	[*Wide*],
-	[
-		Paragraph before.
-		1. One
+#figure(
+	table(
+		columns: (4),
+		stroke: none,
+		align: (left + horizon),
+		table.hline(),
+		table.header[][*Numbered*][*Unnumbered*][*Terms*],
+		table.hline(),
+		[*Tight*],
+		[
+			Paragraph before.
+			1. One
+			2. Two
+			3. Three
+			Paragraph after.
+		],
+		[
+			Paragraph before.
+			- One
+			- Two
+			- Three
+			Paragraph after.
+		],
+		[
+			Paragraph before.
+			/ One: This is 1.
+			/ Two: This is 2.
+			/ Three: This is 3.
+			Paragraph after.
+		],
+		table.hline(),
+		[*Wide*],
+		[
+			Paragraph before.
+			1. One
 
-		2. Two
+			2. Two
 
-		3. Three
-		Paragraph after.
-	],
-	[
-		Paragraph before.
-		- One
+			3. Three
+			Paragraph after.
+		],
+		[
+			Paragraph before.
+			- One
 
-		- Two
+			- Two
 
-		- Three
-		Paragraph after.
-	],
-	[
-		Paragraph before.
-		/ One: This is 1.
+			- Three
+			Paragraph after.
+		],
+		[
+			Paragraph before.
+			/ One: This is 1.
 
-		/ Two: This is 2.
+			/ Two: This is 2.
 
-		/ Three: This is 3.
-		Paragraph after.
-	],
-	table.hline(),
-))
+			/ Three: This is 3.
+			Paragraph after.
+		],
+		table.hline(),
+	),
+	placement: none,
+	caption: [Comparison of list types in Typst],
+)
 
 Numbering of lists can be done explicitly or automatically. Both examples below
 are equivalent:
