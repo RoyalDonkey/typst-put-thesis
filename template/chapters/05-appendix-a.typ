@@ -55,7 +55,17 @@
 	]
 	```]
 
-- Place footnotes _after_ the period ending a sentence, not before.#footnote[Like so! Also do not overuse footnotes.]
+- The title of the thesis should occupy 2 lines at maximum and each line should
+	ideally be a full phrase (avoid oddly broken sentences).
+
+- Fix all Typst compilation warnings (unless they come from packages).
+
+- Make sure all relevant literature is present in the bibliography file
+	(`*.bib` or #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[`*.yml`])
+	and referenced with the `@` syntax or the ```typst #cite()``` function.
+
+- Place footnotes _after_ the period terminating a sentence, not
+	before.#footnote[Like so! Also do not overuse footnotes.]
 
 - Figure titles (tables, images, code listings, etc.) should end with a period.
 
@@ -66,6 +76,14 @@
 - Use non-breaking space (typeset using 'tilda' `~`) to prevent awkward line
 	endings. In particular, before every`~@ref` that appears in the middle of a
 	sentence.
+
+- Use non-breaking space after periods which do not terminate a sentence, e.g.
+	"`e.g.~`", "`w.r.t.~`", "`i.e.~`", etc. In Polish "`np.~`", "`tj.~`", etc.
+
+- In American typography, closing quotes and footnotes are placed _after_
+	adjacent punctuation. This is not a recommendation, but something to
+	consider. Example sentence:
+		- It can be called "curiosity," but it's actually normal.
 
 == Numbered, unnumbered, terms, tight and wide lists
 Typst has numbered, unnumbered and terms lists. All 3 types also can be tight
@@ -349,3 +367,32 @@ memory-safe languages, Rust. The code can be seen on~@hello-rust.
 	caption: [The best program, memory safe#footnote[Well, more or less. See~@cve-rs.]],
 	placement: none,
 ) <hello-rust>
+#codly-disable()
+
+== Indented paragraphs
+By default, Typst (and this template) separate paragraphs with vertical spacing.
+If you prefer new paragraphs to be indented instead, you may use this code
+snippet at the top of your document:
+
+```typst
+#set par(
+	first-line-indent: 2em, // Adjust to taste
+	spacing: 0.65em,
+)
+#set block(spacing: 1.2em)
+```
+This adds a first line indent and gets rid of the vertical spacing.
+
+By default, only the first line of a consecutive paragraph will be indented
+(not the first one in the document or container, and not paragraphs immediately
+following other block-level elements). To~indiscriminately indent all
+paragraphs, you may modify the `set` statement like so:
+
+```typst
+#set par(
+	first-line-indent: (amount: 2em, all: true),
+)
+```
+
+More information on paragraphs:
+- https://typst.app/docs/reference/model/par/

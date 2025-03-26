@@ -71,3 +71,28 @@ odnośnik do odpowiedniego miejsca w pracy.
 To samo tyczy się odwołań do rysunków, tabel, równań, etc. Dla ciekawskich,
 dokumentacja funkcji ```typst ref()```, która jest wywoływana pod spodem
 dla każdego odwołania:\ https://typst.app/docs/reference/model/ref/.
+
+== Przecinek jako separator dziesiętny
+
+W momencie pisania tego szablonu, Typst 0.13.0 nie posiada wbudowanego wsparcia
+dla matematycznych separatorów dziesiętnych innych niż kropka. Dostępne są dwa
+rozwiązania:
+
+1. Użyć reguły ```typst show``` aby podmienić kropkę na przecinek w
+	wyświetlanym tekście. Przykładowa reguła poniżej. Powinna zostać
+	zdefiniowana na początku dokumentu:
+	```typst
+	#show math.equation: it => {
+		show regex("\d+\.\d+"): num => num.text.replace(".", ",")
+		it
+	}
+	```
+	To rozwiązanie to "hack" -- nie ma gwarancji, że będzie działać zgodnie
+	z oczekiwaniami w każdej sytuacji.
+
+2. Skorzystać z zewnętrznej paczki, która dodaje tę funkcjonalność. Zdaje się,
+	że przynajmniej jedną taką paczką jest
+	#link("https://typst.app/universe/package/zero")[zero].
+
+Aktualny stan tego problemu może być śledzony pod tym linkiem:
+- https://github.com/typst/typst/issues/1093
