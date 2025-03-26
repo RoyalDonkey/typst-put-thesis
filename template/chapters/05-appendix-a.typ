@@ -316,7 +316,8 @@ readily available for a plethora of programming languages.
 ]
 
 For extra punch, we can use a 3rd party package such as
-#link("https://typst.app/universe/package/codly")[codly] to prettify the output and get more features such as highlighting parts of our code.
+#link("https://typst.app/universe/package/codly")[codly] to prettify the output
+and get more features such as highlighting parts of our code.
 
 #codly-enable()
 While~@hello-c is written in the best programming language, here is a version
@@ -395,3 +396,9 @@ paragraphs, you may modify the `set` statement like so:
 
 More information on paragraphs:
 - https://typst.app/docs/reference/model/par/
+
+== Typst Reference
+The Typst project hosts an excellent online reference which does a good job
+explaining every feature of the language. You are encouraged to consult it,
+should any questions arise~@typst-reference: \
+https://typst.app/docs/reference
