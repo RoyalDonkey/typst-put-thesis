@@ -33,13 +33,13 @@ Pozostałe zasady interpunkcji i typografii można znaleźć w słownikach.
 
 == Gramatyczna odmiana generowanych odnośników
 
-Pisząc po polsku, kiedy chcemy odwołać się np. do sekcji lub rysunku, istotne
+Pisząc po polsku, kiedy chcemy odwołać się np. do rozdziału lub rysunku, istotne
 jest zachowanie właściwej formy suplementu odnośnika. Jeśli zdanie wymaga formy
 mianownikowej, to nie ma problemu. Piszemy po prostu:
 
 #align(center)[
 	```typst
-	@sec:topic-and-scope opowiada o temacie pracy.
+	@sec:topic-and-scope opowiada o tematyce pracy.
 	```
 ]
 
@@ -47,34 +47,35 @@ Natomiast przykładowo takie zdanie:
 
 #align(center)[
 	```typst
-	W~@sec:topic-and-scope omawiany jest temat pracy.
+	W~@sec:topic-and-scope omawiany jest zakres pracy.
 	```
 ]
 
 Zostanie przełożone na "W~@sec:topic-and-scope omawiany jest temat pracy", co
 jest gramatycznie niepoprawne i nieładnie wygląda. W takich sytuacjach
 przydatne jest tymczasowe nadpisanie tzw.~suplementu (w tym wypadku słowa
-"Sekcja"). Na szczęście twórcy Typst przewidzieli ten~problem i~wbudowali
+"Rozdział"). Na szczęście twórcy Typst przewidzieli ten~problem i~wbudowali
 w~język specjalną składnię, która nam to umożliwia:
 
 #align(center)[
 	```typst
-	W~@sec:topic-and-scope[Sekcji] omawiany jest temat pracy.
+	W~@sec:topic-and-scope[Rozdziale] omawiany jest zakres pracy.
 	```
 ]
 
-Taka forma skutkuje poprawnym "W~@sec:topic-and-scope[Sekcji] omawiany jest
+Taka forma skutkuje poprawnym "W~@sec:topic-and-scope[Rozdziale] omawiany jest
 temat pracy". Równocześnie, całe sformułowanie
-"@sec:topic-and-scope[Sekcji]" będzie poprawnie wygenerowane jako klikalny
+"@sec:topic-and-scope[Rozdziale]" będzie poprawnie wygenerowane jako klikalny
 odnośnik do odpowiedniego miejsca w pracy.
 
-To samo tyczy się odwołań do rysunków, tabel, równań, etc. Dla ciekawskich,
-dokumentacja funkcji ```typst ref()```, która jest wywoływana pod spodem
+To samo tyczy się odwołań do rysunków, tabel, równań, etc. Dla ciekawych,
+dokumentacja funkcji ```typst ref()```, która jest wewnętrznie wywoływana
 dla każdego odwołania:\ https://typst.app/docs/reference/model/ref/.
+
 
 == Przecinek jako separator dziesiętny
 
-W momencie pisania tego szablonu, Typst 0.13.0 nie posiada wbudowanego wsparcia
+W momencie tworzenia tego szablonu, Typst 0.13.0 nie posiada wbudowanego wsparcia
 dla matematycznych separatorów dziesiętnych innych niż kropka. Dostępne są dwa
 rozwiązania:
 
@@ -94,5 +95,5 @@ rozwiązania:
 	że przynajmniej jedną taką paczką jest
 	#link("https://typst.app/universe/package/zero")[zero].
 
-Aktualny stan tego problemu może być śledzony pod tym linkiem:
+Aktualny stan tego problemu może być śledzony tutaj:
 - https://github.com/typst/typst/issues/1093
