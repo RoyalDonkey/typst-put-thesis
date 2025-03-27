@@ -37,7 +37,6 @@ i.e. "... was considered", "... was implemented", and not: "I considered ...",
 Informal language is strictly prohibited. It is imperative to use well-defined,
 precise terminology that carries clear meaning.
 
-Directly copying & pasting from external sources is strictly prohibited as
-plagiarism and proof of intellectual indolence of the authors. Each matter is to
-be described using the authors' own words. It is sometimes necessary to cite
-external sources.
+Directly copying and pasting from external sources is strictly prohibited as
+plagiarism and proof of intellectual indolence of the authors. Each matter should
+be described using the authors' own words, and sources should be cited.
