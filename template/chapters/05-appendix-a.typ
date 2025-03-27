@@ -191,7 +191,7 @@ of cases, it works perfectly fine and is very intuitive to use. However, it is
 not yet as mature and battle-tested as LaTeX's engine, so more demanding use
 cases may require manual tweaking or call for better tools.
 
-The quadratic equation, as seen on~@eq:quadratic.
+Example: the quadratic equation shown in~@eq:quadratic.
 
 $
 	x = (-b plus.minus sqrt(b^2 - 4 a c)) / (2 a)
@@ -208,7 +208,7 @@ $ <eq:arc-length>
 Typst has native support for various image formats. Vector formats such as SVG
 are preferred over raster ones, unless there is a good reason against it (e.g.
 an extremely high number of objects which slows down the document).
-#footnote[A comparison of various graphics formats (pl): https://www.youtube.com/watch?v=_98SDNIpm24]
+#footnote[A comparison of various graphics formats (in Polish): https://www.youtube.com/watch?v=_98SDNIpm24]
 
 #block(breakable: false)[
 	As a rule of thumb, figures should be placed at the top of a page, where they
@@ -360,7 +360,7 @@ Coincidentally, @hello-python also happens to be valid code in Lua, doing
 exactly the same thing!
 
 Last but not least, let us consider a representative of a newer front of
-memory-safe languages, Rust. The code can be seen on~@hello-rust.
+memory-safe languages, Rust. The code is demonstrated in~@hello-rust.
 
 #figure(
 	```rust
