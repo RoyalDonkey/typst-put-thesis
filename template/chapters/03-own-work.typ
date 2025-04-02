@@ -38,5 +38,7 @@ Informal language is strictly prohibited. It is imperative to use well-defined,
 precise terminology that carries clear meaning.
 
 Directly copying and pasting from external sources is strictly prohibited as
-plagiarism and proof of intellectual indolence of the authors. Each matter should
-be described using the authors' own words, and sources should be cited.
+plagiarism#footnote[How to identify and avoid plagiarism (in Polish):
+  https://akademickaporadniaprawna.pl/plagiat-na-studiach/] and proof of
+intellectual indolence of the authors. Each matter should be described using
+the authors' own words, and sources should be cited.
