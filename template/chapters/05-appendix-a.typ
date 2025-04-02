@@ -228,7 +228,9 @@ an extremely high number of objects which slows down the document).
 For plotting, there are native 3rd party libraries such as
 #link("https://typst.app/universe/package/cetz-plot")[cetz-plot], although it
 may be better to use an independent, mature plotting framework such as Gnuplot,
-ggplot2, or Matplotlib and export SVG images.
+ggplot2, or Matplotlib and export SVG images.#footnote[A short lecture on
+  plotting best practices (in Polish):
+  https://www.youtube.com/watch?v=pfSgcsQ2Mtk]
 
 #figure(
 	image("../img/plot.svg", width: 80%),
