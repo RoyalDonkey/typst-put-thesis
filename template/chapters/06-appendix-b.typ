@@ -96,4 +96,4 @@ rozwiązania:
 	#link("https://typst.app/universe/package/zero")[zero].
 
 Aktualny stan tego problemu może być śledzony tutaj:
-- https://github.com/typst/typst/issues/1093
+- https://github.com/typst/typst/issues/1093 ~// Add invisible space in regular font; workaround for ugly vertical spacing caused by https://github.com/typst/typst/issues/1204

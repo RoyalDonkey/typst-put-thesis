@@ -60,7 +60,7 @@
 - Fix all Typst compilation warnings (unless they come from packages).
 
 - Make sure all relevant literature is present in the bibliography file
-	(`*.bib` or #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[`*.yml`])
+	(`*.bib` or #link("https://github.com/typst/hayagriva/blob/main/docs/file-format.md")[\*.yml])
 	and referenced with the `@` syntax or the ```typst #cite()``` function.
 
 - Place footnotes _after_ the period terminating a sentence, not
@@ -179,9 +179,9 @@ are equivalent:
 
 #block(breakable: false)[
 	For more information, refer to:
-	- https://typst.app/docs/reference/model/list/
-	- https://typst.app/docs/reference/model/enum/
-	- https://typst.app/docs/reference/model/terms/
+	- https://typst.app/docs/reference/model/list/ ~// Add invisible space in regular font; workaround for ugly vertical spacing caused by https://github.com/typst/typst/issues/1204
+	- https://typst.app/docs/reference/model/enum/ ~
+	- https://typst.app/docs/reference/model/terms/ ~
 ]
 
 == Math equations
@@ -238,7 +238,7 @@ ggplot2, or Matplotlib and export SVG images.#footnote[A short lecture on
 )
 
 More information on figures:
-- https://typst.app/docs/reference/model/figure
+- https://typst.app/docs/reference/model/figure ~// Add invisible space in regular font; workaround for ugly vertical spacing caused by https://github.com/typst/typst/issues/1204
 
 == Tables
 Tables should also be enclosed in ```typst #figure()``` functions, to enable

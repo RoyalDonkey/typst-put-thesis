@@ -59,6 +59,10 @@
 	)
 	set text(size: 10pt, font: font, lang: lang)
 	set par(justify: true, leading: 0.83em)
+	show link: it => {
+		set text(size: 0.8em, font: "DejaVu Sans Mono") if type(it.dest) == str
+		it
+	}
 
 	// Typst does not have the correct smartquote formatting for Polish by default.
 	// FIXME: This does not work for some reason.
