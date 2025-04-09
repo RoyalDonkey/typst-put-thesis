@@ -11,7 +11,7 @@ rozdzielane na dwie linie tekstu:
 
 #align(center)[
   ```typst
-  I~wtedy pomyślałem, że to życie jednak może jest coś warte.
+  I~wtedy pomyślałem, że to życie może jednak jest coś warte.
   ```
 ]
 
