@@ -64,7 +64,7 @@
 	and referenced with the `@` syntax or the ```typst #cite()``` function.
 
 - Place footnotes _after_ the period terminating a sentence, not
-	before.#footnote[Like so! Also do not overuse footnotes.]
+	before.#footnote[Like so! Also, do not overuse footnotes.]
 
 - Figure titles (tables, images, code listings, etc.) should end with a period.
 
