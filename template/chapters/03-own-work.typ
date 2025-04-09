@@ -24,12 +24,12 @@ body of the thesis. Any software written for the purpose of the thesis, or
 results of experiments, should be uploaded to the PUT online repository or
 shared via a medium, e.g. a CD disk, as an addition to the
 work#footnote[Uploading and linking to online services such as GitHub is also
-	acceptable.].
+  acceptable.].
 
 == Writing style
 
 Passive mode is preferred#footnote[Remarks on the style of writing partially
-	originate from the web pages of prof. Maciej Drozdowski~@Drozdowski2006.],
+  originate from the web pages of prof. Maciej Drozdowski~@Drozdowski2006.],
 i.e. "... was considered", "... was implemented", and not: "I considered ...",
 "I implemented ...". References to earlier parts should be written as follows:
 "As mentioned earlier, ...", "As shown above, ...". Avoid long sentences.
