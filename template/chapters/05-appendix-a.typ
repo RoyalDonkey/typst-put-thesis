@@ -299,6 +299,15 @@ use a community package, e.g.
 #link("https://typst.app/universe/package/zero")[zero].
 
 == Source code
+#{
+set text(size: 8pt)
+block(inset: (left: 5mm, right: 5mm), rect(radius: 5pt)[
+	*Disclaimer*\
+  	The opinions on programming languages present in this section are personal
+  	biases of the template author and~are not officially endorsed by Poznań
+  	University of Technology. They were left in with humorous intent.
+])
+}
 Much like tables and images, source code typically resides within a
 ```typst #figure()``` function, where it can be captioned and labeled.
 Typst has native support for source code blocks, with syntax highlighting
