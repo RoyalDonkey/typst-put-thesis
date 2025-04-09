@@ -1,8 +1,8 @@
 // An opinionated 3rd party library for rendering prettier source code blocks.
 // You may get rid of it or replace it with something else if you like.
 // https://typst.app/universe/package/codly
-#import "@preview/codly:1.2.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.8": *
 #show: codly-init.with()
 
 // Configure codly. Optional.
