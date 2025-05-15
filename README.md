@@ -13,20 +13,14 @@ was adapted from a template for the faculty of Computing and Telecommunications
 adjustable to any faculty or field of study.
 
 ## Usage
-There are a few ways this template can be used.
 
 ### 1. Local copy (Linux, Windows, macOS)
-This assumes you already have Typst installed on your system.
 
-1. Download this repository.
-2. Copy the contents into:
-    - **Linux**: `${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/preview/put-thesis/`
-    - **Windows**: `%APPDATA%/typst/packages/preview/put-thesis/`
-    - **macOS**: `~/Library/Application Support/typst/packages/preview/put-thesis/`
-    - see the official guidelines at [typst/packages/README#local-packages](https://github.com/typst/packages?tab=readme-ov-file#local-packages)
-3. Run `typst init @preview/put-thesis:0.1.0`.
-4. A new directory `put-thesis` containing the default template should be
-   created. Use it as a starting point for your document.
+Run:
+
+```sh
+typst init @preview/put-thesis
+```
 
 The template relies on 3rd party packages that need to be downloaded from the
 internet. If you wish to work fully offline, be sure to compile the document at
@@ -34,8 +28,10 @@ least once with internet access. Typst caches downloaded packages locally (see
 [typst/packages/README#downloads](https://github.com/typst/packages?tab=readme-ov-file#downloads)),
 so after that you should be good to go.
 
-### 2. Typst Online Editor (requires sign-in)
-Coming soon!
+### 2. Typst Online Editor
+
+Go to https://typst.app/universe/package/put-thesis and click "Create project in
+app".
 
 ## Acknowledgements
 The Typst implementation was partially inspired by RefDevX's
