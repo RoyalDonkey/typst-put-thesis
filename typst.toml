@@ -1,6 +1,6 @@
 [package]
 name = "put-thesis"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "src/lib.typ"
 authors = ["Piotr Kaszubski <@RoyalDonkey>", "Maciej Komosiński <@komosinski>"]
 license = "MIT AND MIT-0"
