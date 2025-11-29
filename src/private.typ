@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.6.0": hydra, anchor
+#import "@preview/hydra:0.6.2": hydra, anchor
 
 #let front-matter(config) = context {
   let lang = config.lang

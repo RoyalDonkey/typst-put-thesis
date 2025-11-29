@@ -7,7 +7,7 @@
 /*          Faculty of Computing and Telecommunication          */
 /*            Poznan University of Technology, 2022             */
 /****************************************************************/
-#import "@preview/put-thesis:0.1.0": *
+#import "@preview/put-thesis:0.1.1": *
 
 #show: put-thesis.with(
   lang: "en",  // or "pl"

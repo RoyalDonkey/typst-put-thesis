@@ -2,7 +2,7 @@
 // You may get rid of it or replace it with something else if you like.
 // https://typst.app/universe/package/codly
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.8": *
+#import "@preview/codly-languages:0.1.10": *
 #show: codly-init.with()
 
 // Configure codly. Optional.
